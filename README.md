@@ -89,7 +89,7 @@ cd GSOC-REVIEW-PLATFORM
 
 ```bash
 # Navigate to backend directory
-cd backend
+cd server
 
 # Create and activate virtual environment
 python3 -m venv venv
@@ -118,7 +118,7 @@ The backend API will be available at `http://localhost:8000`
 
 ```bash
 # Navigate to frontend directory (from project root)
-cd frontend
+cd client
 
 # Install dependencies
 npm install
