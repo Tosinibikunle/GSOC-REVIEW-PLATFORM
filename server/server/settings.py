@@ -77,8 +77,8 @@ WSGI_APPLICATION = 'server.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
-        'NAME': 'gsoc_review_db',  # MongoDB database name
+        'ENGINE':  'django.db.backends.sqlite3',
+        'NAME': 'db.sqlite3',  # MongoDB database name
         'CLIENT': {
             'host': 'mongodb://localhost:27017',  # Replace with your MongoDB URI
         }
