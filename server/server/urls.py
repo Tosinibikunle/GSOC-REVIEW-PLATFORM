@@ -19,5 +19,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('gsoc_review.urls')),
+    path('api/', include('gsoc_review.urls')),
+    path('api-auth/', include('rest_framework.urls')),  # Login/logout for browsable API
+    # API documentation available through browsable API at /api/
 ]

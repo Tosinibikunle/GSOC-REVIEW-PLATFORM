@@ -1,8 +1,24 @@
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from .views import (
+    OrganizationViewSet, UserProfileViewSet, ProjectViewSet,
+    ProposalViewSet, ReviewViewSet, CommentViewSet,
+    ProjectTimelineViewSet, NotificationViewSet
+)
 
-from django.urls import path
-from .views import ProposalListCreateView, ProposalDetailView
+# Create a router and register our viewsets
+router = DefaultRouter()
+router.register(r'organizations', OrganizationViewSet, basename='organization')
+router.register(r'profiles', UserProfileViewSet, basename='userprofile')
+router.register(r'projects', ProjectViewSet, basename='project')
+router.register(r'proposals', ProposalViewSet, basename='proposal')
+router.register(r'reviews', ReviewViewSet, basename='review')
+router.register(r'comments', CommentViewSet, basename='comment')
+router.register(r'timelines', ProjectTimelineViewSet, basename='timeline')
+router.register(r'notifications', NotificationViewSet, basename='notification')
 
+# The API URLs are now determined automatically by the router
 urlpatterns = [
-    path('proposals/', ProposalListCreateView.as_view(), name='proposal-list-create'),
-    path('proposals/<int:pk>/', ProposalDetailView.as_view(), name='proposal-detail'),
+    path('', include(router.urls)),
 ]
+
